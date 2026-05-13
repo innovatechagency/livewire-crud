@@ -193,12 +193,12 @@
                 <span class="font-label-lg text-label-lg">Menu</span>
             </a>
             <a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-primary-container hover:text-on-primary-container rounded-xl transition-all duration-200"
-                href="#">
+                href="/tables">
                 <span class="material-symbols-outlined">table_restaurant</span>
                 <span class="font-label-lg text-label-lg">Tables</span>
             </a>
             <a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-primary-container hover:text-on-primary-container rounded-xl transition-all duration-200"
-                href="#">
+                href="/reservation">
                 <span class="material-symbols-outlined">event_available</span>
                 <span class="font-label-lg text-label-lg">Réservations</span>
             </a>
@@ -264,7 +264,7 @@
 
         {{-- Chargement dynamique des composants --}}
         @isset($component)
-            @livewire($component)
+            @livewire($component, ['id' => $tableId ?? null])
         @else
             <h1>Bienvenue sur mon app Livewire</h1>
         @endisset
