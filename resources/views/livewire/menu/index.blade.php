@@ -187,55 +187,129 @@
 
     <!-- Category Chips Section -->
     <section class="flex gap-md overflow-x-auto pb-base no-scrollbar">
-        <div
-            class="flex-shrink-0 bg-primary text-on-primary p-md rounded-2xl w-24 h-24 flex flex-col items-center justify-center gap-xs shadow-lg active:scale-95 transition-transform">
-            <span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">grid_view</span>
+        <button
+            type="button"
+            wire:click="$set('categorySearch', '')"
+            class="flex-shrink-0 p-md rounded-2xl w-24 h-24 flex flex-col items-center justify-center gap-xs transition-all active:scale-95 shadow-lg
+            {{ $categorySearch === '' ? 'bg-primary text-on-primary' : 'bg-white border border-outline-variant/30 text-on-surface-variant hover:shadow-md' }}"
+        >
+            <span class="material-symbols-outlined text-3xl"
+                style="{{ $categorySearch === '' ? "font-variation-settings: 'FILL' 1" : '' }}">
+                grid_view
+            </span>
             <span class="font-label-sm text-label-sm">Tous</span>
-        </div>
-        <div
-            class="flex-shrink-0 bg-white p-md rounded-2xl w-24 h-24 flex flex-col items-center justify-center gap-xs shadow-sm hover:shadow-md transition-all group cursor-pointer border border-outline-variant/30">
-            <span
-                class="material-symbols-outlined text-3xl text-primary group-hover:scale-110 transition-transform">breakfast_dining</span>
-            <span class="font-label-sm text-label-sm text-on-surface-variant">Petit Déj</span>
-        </div>
-        <div
-            class="flex-shrink-0 bg-white p-md rounded-2xl w-24 h-24 flex flex-col items-center justify-center gap-xs shadow-sm hover:shadow-md transition-all group cursor-pointer border border-outline-variant/30">
-            <span
-                class="material-symbols-outlined text-3xl text-primary group-hover:scale-110 transition-transform">soup_kitchen</span>
-            <span class="font-label-sm text-label-sm text-on-surface-variant">Soupes</span>
-        </div>
-        <div
-            class="flex-shrink-0 bg-white p-md rounded-2xl w-24 h-24 flex flex-col items-center justify-center gap-xs shadow-sm hover:shadow-md transition-all group cursor-pointer border border-outline-variant/30">
-            <span
-                class="material-symbols-outlined text-3xl text-primary group-hover:scale-110 transition-transform">dinner_dining</span>
-            <span class="font-label-sm text-label-sm text-on-surface-variant">Pâtes</span>
-        </div>
-        <div
-            class="flex-shrink-0 bg-white p-md rounded-2xl w-24 h-24 flex flex-col items-center justify-center gap-xs shadow-sm hover:shadow-md transition-all group cursor-pointer border border-outline-variant/30">
-            <span
-                class="material-symbols-outlined text-3xl text-primary group-hover:scale-110 transition-transform">set_meal</span>
-            <span class="font-label-sm text-label-sm text-on-surface-variant">Poissons</span>
-        </div>
-        <div
-            class="flex-shrink-0 bg-white p-md rounded-2xl w-24 h-24 flex flex-col items-center justify-center gap-xs shadow-sm hover:shadow-md transition-all group cursor-pointer border border-outline-variant/30">
-            <span
-                class="material-symbols-outlined text-3xl text-primary group-hover:scale-110 transition-transform">lunch_dining</span>
-            <span class="font-label-sm text-label-sm text-on-surface-variant">Burgers</span>
-        </div>
-        <div
-            class="flex-shrink-0 bg-white p-md rounded-2xl w-24 h-24 flex flex-col items-center justify-center gap-xs shadow-sm hover:shadow-md transition-all group cursor-pointer border border-outline-variant/30">
-            <span
-                class="material-symbols-outlined text-3xl text-primary group-hover:scale-110 transition-transform">local_bar</span>
-            <span class="font-label-sm text-label-sm text-on-surface-variant">Boissons</span>
-        </div>
-        <div
-            class="flex-shrink-0 bg-white p-md rounded-2xl w-24 h-24 flex flex-col items-center justify-center gap-xs shadow-sm hover:shadow-md transition-all group cursor-pointer border border-outline-variant/30">
-            <span
-                class="material-symbols-outlined text-3xl text-primary group-hover:scale-110 transition-transform">cake</span>
-            <span class="font-label-sm text-label-sm text-on-surface-variant">Desserts</span>
-        </div>
+        </button>
+
+        <!-- Petit Déjeuner -->
+        <button
+            type="button"
+            wire:click="$set('categorySearch', 'Petit Déjeuner')"
+            class="flex-shrink-0 p-md rounded-2xl w-24 h-24 flex flex-col items-center justify-center gap-xs transition-all active:scale-95 shadow-sm
+            {{ $categorySearch === 'Petit Déjeuner' ? 'bg-primary text-on-primary' : 'bg-white border border-outline-variant/30 text-on-surface-variant hover:shadow-md group' }}"
+        >
+            <span class="material-symbols-outlined text-3xl group-hover:scale-110 transition-transform"
+                style="{{ $categorySearch === 'Petit Déjeuner' ? "font-variation-settings: 'FILL' 1" : '' }}">
+                breakfast_dining
+            </span>
+            <span class="font-label-sm text-label-sm">Petit Déj</span>
+        </button>
+
+        <!-- Soupes -->
+        <button
+            type="button"
+            wire:click="$set('categorySearch', 'Soupes')"
+            class="flex-shrink-0 p-md rounded-2xl w-24 h-24 flex flex-col items-center justify-center gap-xs transition-all active:scale-95 shadow-sm
+            {{ $categorySearch === 'Soupes' ? 'bg-primary text-on-primary' : 'bg-white border border-outline-variant/30 text-on-surface-variant hover:shadow-md group' }}"
+        >
+            <span class="material-symbols-outlined text-3xl group-hover:scale-110 transition-transform"
+                style="{{ $categorySearch === 'Soupes' ? "font-variation-settings: 'FILL' 1" : '' }}">
+                soup_kitchen
+            </span>
+            <span class="font-label-sm text-label-sm">Soupes</span>
+        </button>
+
+        <!-- Pâtes -->
+        <button
+            type="button"
+            wire:click="$set('categorySearch', 'Pâtes')"
+            class="flex-shrink-0 p-md rounded-2xl w-24 h-24 flex flex-col items-center justify-center gap-xs transition-all active:scale-95 shadow-sm
+            {{ $categorySearch === 'Pâtes' ? 'bg-primary text-on-primary' : 'bg-white border border-outline-variant/30 text-on-surface-variant hover:shadow-md group' }}"
+        >
+            <span class="material-symbols-outlined text-3xl group-hover:scale-110 transition-transform"
+                style="{{ $categorySearch === 'Pâtes' ? "font-variation-settings: 'FILL' 1" : '' }}">
+                dinner_dining
+            </span>
+            <span class="font-label-sm text-label-sm">Pâtes</span>
+        </button>
+
+        <button
+            type="button"
+            wire:click="$set('categorySearch', 'Poissons')"
+            class="flex-shrink-0 p-md rounded-2xl w-24 h-24 flex flex-col items-center justify-center gap-xs transition-all active:scale-95 shadow-sm
+            {{ $categorySearch === 'Poissons' ? 'bg-primary text-on-primary' : 'bg-white border border-outline-variant/30 text-on-surface-variant hover:shadow-md group' }}"
+        >
+            <span class="material-symbols-outlined text-3xl group-hover:scale-110 transition-transform"
+                style="{{ $categorySearch === 'Poissons' ? "font-variation-settings: 'FILL' 1" : '' }}">
+                set_meal
+            </span>
+            <span class="font-label-sm text-label-sm">Poissons</span>
+        </button>
+
+        <button
+            type="button"
+            wire:click="$set('categorySearch', 'Burgers')"
+            class="flex-shrink-0 p-md rounded-2xl w-24 h-24 flex flex-col items-center justify-center gap-xs transition-all active:scale-95 shadow-sm
+            {{ $categorySearch === 'Burgers' ? 'bg-primary text-on-primary' : 'bg-white border border-outline-variant/30 text-on-surface-variant hover:shadow-md group' }}"
+        >
+            <span class="material-symbols-outlined text-3xl group-hover:scale-110 transition-transform"
+                style="{{ $categorySearch === 'Burgers' ? "font-variation-settings: 'FILL' 1" : '' }}">
+                lunch_dining
+            </span>
+            <span class="font-label-sm text-label-sm">Burgers</span>
+        </button>
+
+        <button
+            type="button"
+            wire:click="$set('categorySearch', 'Boissons')"
+            class="flex-shrink-0 p-md rounded-2xl w-24 h-24 flex flex-col items-center justify-center gap-xs transition-all active:scale-95 shadow-sm
+            {{ $categorySearch === 'Boissons' ? 'bg-primary text-on-primary' : 'bg-white border border-outline-variant/30 text-on-surface-variant hover:shadow-md group' }}"
+        >
+            <span class="material-symbols-outlined text-3xl group-hover:scale-110 transition-transform"
+                style="{{ $categorySearch === 'Boissons' ? "font-variation-settings: 'FILL' 1" : '' }}">
+                local_bar
+            </span>
+            <span class="font-label-sm text-label-sm">Boissons</span>
+        </button>
+
+        <button
+            type="button"
+            wire:click="$set('categorySearch', 'Boissons')"
+            class="flex-shrink-0 p-md rounded-2xl w-24 h-24 flex flex-col items-center justify-center gap-xs transition-all active:scale-95 shadow-sm
+            {{ $categorySearch === 'Boissons' ? 'bg-primary text-on-primary' : 'bg-white border border-outline-variant/30 text-on-surface-variant hover:shadow-md group' }}"
+        >
+            <span class="material-symbols-outlined text-3xl group-hover:scale-110 transition-transform"
+                style="{{ $categorySearch === 'Boissons' ? "font-variation-settings: 'FILL' 1" : '' }}">
+                local_bar
+            </span>
+            <span class="font-label-sm text-label-sm">Boissons</span>
+        </button>
+
+        <button
+            type="button"
+            wire:click="$set('categorySearch', 'Desserts')"
+            class="flex-shrink-0 p-md rounded-2xl w-24 h-24 flex flex-col items-center justify-center gap-xs transition-all active:scale-95 shadow-sm
+            {{ $categorySearch === 'Desserts' ? 'bg-primary text-on-primary' : 'bg-white border border-outline-variant/30 text-on-surface-variant hover:shadow-md group' }}"
+        >
+            <span class="material-symbols-outlined text-3xl group-hover:scale-110 transition-transform"
+                style="{{ $categorySearch === 'Desserts' ? "font-variation-settings: 'FILL' 1" : '' }}">
+                cake
+            </span>
+            <span class="font-label-sm text-label-sm">Desserts</span>
+        </button>
+
     </section>
     <!-- Bento Grid of Menu Items -->
+
     <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-gutter">
         <!-- Item Card 1 -->
         @forelse ($products as $product)

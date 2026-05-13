@@ -240,13 +240,7 @@
     <header
         class="fixed top-0 left-64 right-0 h-20 z-40 backdrop-blur-md bg-white/50 dark:bg-on-background/50 flex items-center justify-between px-margin-desktop border-b border-outline-variant/10">
         <div class="flex items-center gap-lg flex-1">
-            <div class="relative w-full max-w-md">
-                <span
-                    class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
-                <input
-                    class="w-full bg-surface-container-low border-none rounded-full py-3 pl-12 pr-4 font-body-sm text-body-sm focus:ring-2 focus:ring-primary"
-                    placeholder="Rechercher un produit..." type="text" />
-            </div>
+            @livewire('layout.search-bar', [], key('global-search'))
             <button
                 class="p-2 bg-surface-container-low rounded-xl text-on-surface-variant hover:bg-primary-container hover:text-on-primary-container transition-colors focus:ring-2 focus:ring-primary ring-offset-2">
                 <span class="material-symbols-outlined">tune</span>

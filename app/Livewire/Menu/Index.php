@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Livewire\WithPagination;
+use Livewire\Attributes\On;
 
 class Index extends Component
 {
@@ -59,10 +60,14 @@ class Index extends Component
     {
 
         $products = Product::query()
-                ->where('name','like','%'. $this->search . '%')
-                ->orWhere('name','like','%'. $this->categorySearch . '%')
-                ->latest()
-                ->paginate($this->perPage);
+            ->when($this->search, function ($query) {
+                $query->where('name', 'like', '%' . $this->search . '%');
+            })
+            ->when($this->categorySearch, function ($query) {
+                $query->where('category', $this->categorySearch);
+            })
+            ->latest()
+            ->get();
 
         return view('livewire.menu.index', compact('products'));
     }
@@ -77,9 +82,10 @@ class Index extends Component
         $this->resetPage();
     }
 
-    public function updatingPerPage(): void
+    #[On('global-search-updated')]
+    public function updateSearch($value)
     {
-        $this->resetPage();
+        $this->search = $value;
     }
 
     public function openCreate():void
