@@ -32,3 +32,9 @@ Route::get('/reservation', function () {
         'component' => 'reservation.index'
     ]);
 });
+
+Route::get('/commande', function () {
+    return view('welcome', [
+        'component' => 'commande.index'
+    ]);
+});

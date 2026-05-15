@@ -203,9 +203,9 @@
                 <span class="font-label-lg text-label-lg">Réservations</span>
             </a>
             <a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-primary-container hover:text-on-primary-container rounded-xl transition-all duration-200"
-                href="#">
+                href="/commande">
                 <span class="material-symbols-outlined">delivery_dining</span>
-                <span class="font-label-lg text-label-lg">Livraisons</span>
+                <span class="font-label-lg text-label-lg">Commande</span>
             </a>
             <a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-primary-container hover:text-on-primary-container rounded-xl transition-all duration-200"
                 href="#">
